@@ -79,10 +79,10 @@ public class Tasks {
         return runs.get(runs.size() - 1).getKm();
     }
 
-    public void thirdTask() {
+    public List<Integer> sixthTask() {
         List<Integer> kmPerDay = new ArrayList<>();
         for (int i = 0; i < 7; i++) {
-            kmPerDay.set(i, 0);
+            kmPerDay.add(i,0);
         }
         for (Run r : runs) {
             switch (r.getWeekday()) {
@@ -98,10 +98,19 @@ public class Tasks {
                 case 4:
                     kmPerDay.set(3, kmPerDay.get(3) + r.getKm());
                     break;
+                case 5:
+                    kmPerDay.set(4, kmPerDay.get(4) + r.getKm());
+                    break;
+                case 6:
+                    kmPerDay.set(5, kmPerDay.get(5) + r.getKm());
+                    break;
+                case 7:
+                    kmPerDay.set(6, kmPerDay.get(6) + r.getKm());
+                    break;
             }
 
         }
-
+return kmPerDay;
     }
 
 }
