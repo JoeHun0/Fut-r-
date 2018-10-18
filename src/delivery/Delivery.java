@@ -19,7 +19,8 @@ public class Delivery {
          } catch (IOException e) {
              System.out.println(e.getMessage());
          }
-        t.sortList();
+        System.out.println("2. Feladat:");
+        System.out.println("");
         
     }
     

@@ -37,22 +37,71 @@ public class Tasks {
             System.out.println("Olvasási hiba" + io.getMessage());
         } finally {
             br.close();
+            sortList();
         }
     }
 
     public List<Run> getRuns() {
         return runs;
     }
-    public void sortList(){
+
+    public void sortList() {
         Run temp = null;
-        for(int i = 0; i<runs.size();i++){
-            for(int j = 1; j<runs.size()-i;i++){
-                if (runs.get(j-1).getWeekday()>runs.get(j).getWeekday()){
-                    temp=runs.get(j);
-                    runs.set(j,runs.get(j-1));
-                    runs.set(j-1, temp);
+        for (int i = 0; i < runs.size(); i++) {
+            for (int j = 1; j < runs.size() - i; i++) {
+                if (runs.get(j - 1).getWeekday() > runs.get(j).getWeekday()) {
+                    temp = runs.get(j);
+                    runs.set(j, runs.get(j - 1));
+                    runs.set(j - 1, temp);
+                }
+            }
+        }
+        for (int i = 0; i < runs.size(); i++) {
+            for (int j = 1; j < runs.size() - i; i++) {
+                if (runs.get(j - 1).getWeekday() == runs.get(j).getWeekday()) {
+                    if (runs.get(j - 1).getRunId() > runs.get(j).getRunId()) {
+                        temp = runs.get(j);
+                        runs.set(j, runs.get(j - 1));
+                        runs.set(j - 1, temp);
+                    }
                 }
             }
         }
     }
+
+    public int firstTask() {
+
+        return runs.get(0).getKm();
+    }
+
+    public int seccondTask() {
+
+        return runs.get(runs.size() - 1).getKm();
+    }
+
+    public void thirdTask() {
+        List<Integer> kmPerDay = new ArrayList<>();
+        for (int i = 0; i < 7; i++) {
+            kmPerDay.set(i, 0);
+        }
+        for (Run r : runs) {
+            switch (r.getWeekday()) {
+                case 1:
+                    kmPerDay.set(0, kmPerDay.get(0) + r.getKm());
+                    break;
+                case 2:
+                    kmPerDay.set(1, kmPerDay.get(1) + r.getKm());
+                    break;
+                case 3:
+                    kmPerDay.set(2, kmPerDay.get(2) + r.getKm());
+                    break;
+                case 4:
+                    kmPerDay.set(3, kmPerDay.get(3) + r.getKm());
+                    break;
+            }
+
+        }
+
+    }
+
 }
