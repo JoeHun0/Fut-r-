@@ -19,7 +19,8 @@ public class Delivery {
          } catch (IOException e) {
              System.out.println(e.getMessage());
          }
-        System.out.println(t.getRuns().size());
+        t.sortList();
+        
     }
     
 }

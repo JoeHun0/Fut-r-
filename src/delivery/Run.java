@@ -20,4 +20,16 @@ public class Run {
         this.runId = runId;
         this.km = km;
     }
+
+    public int getWeekday() {
+        return weekday;
+    }
+
+    public int getRunId() {
+        return runId;
+    }
+
+    public int getKm() {
+        return km;
+    }
 }

@@ -43,4 +43,16 @@ public class Tasks {
     public List<Run> getRuns() {
         return runs;
     }
+    public void sortList(){
+        Run temp = null;
+        for(int i = 0; i<runs.size();i++){
+            for(int j = 1; j<runs.size()-i;i++){
+                if (runs.get(j-1).getWeekday()>runs.get(j).getWeekday()){
+                    temp=runs.get(j);
+                    runs.set(j,runs.get(j-1));
+                    runs.set(j-1, temp);
+                }
+            }
+        }
+    }
 }
